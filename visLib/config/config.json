@@ -1,0 +1,17 @@
+{
+  "param": {
+    "outputDir": "../visLib/out/dot/",
+    "imageDir": "../visLib/out/png/",
+    "logDir": "../visLib/log/",
+    "dumpName": "dump",
+    "digraphName": "BinarySearchTree",
+    "font": "Arial",
+    "shape": "point",
+    "deleteBefore": true,
+    "onlyOneFileMode": false,
+    "appendMode": false,
+    "diffMode": false,
+    "childCountMode": true,
+    "treapMode": false
+  }
+}

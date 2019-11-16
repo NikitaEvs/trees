@@ -88,8 +88,9 @@
     elementType select(int32_t orderStatistic) {
       Node* currentNode = root;
       while (currentNode != nullptr) {
-        if (currentNode -> leftChildCount <= orderStatistic) {
-          orderStatistic -= currentNode -> leftChildCount;
+        int32_t leftChildCount = currentNode -> leftChildCount;
+        if (leftChildCount <= orderStatistic) {
+          orderStatistic -= leftChildCount;
           if (orderStatistic == 0) {
             return currentNode -> value;
           }

@@ -1,0 +1,215 @@
+***START LOG***
+encode() | encode symbol | Byte: A
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+encode() |  - > addSymbol()
+addSymbol() | add new symbol to the tree | Byte: A
+addSymbol() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 511
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: A
+encode() | encode symbol | Byte: B
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+encode() |  - > addSymbol()
+addSymbol() | add new symbol to the tree | Byte: B
+addSymbol() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 509
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: B
+encode() | encode symbol | Byte: C
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+encode() |  - > addSymbol()
+addSymbol() | add new symbol to the tree | Byte: C
+addSymbol() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 507
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: C
+encode() | encode symbol | Byte: C
+encode() | index of our symbol | Number: 507
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 508
+getCompressedByte() | current node index | Number: 507
+getCompressedByte() | come from right child
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 508
+getCompressedByte() | come from left child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 507
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 3
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 01
+encode() | encode symbol | Byte: D
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+encode() |  - > addSymbol()
+addSymbol() | add new symbol to the tree | Byte: D
+addSymbol() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 505
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 506
+incrementWeights() | current node index | Number: 506
+incrementWeights() | new weight after increment | Number: 1
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 3
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 4
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: D
+encode() | encode symbol | Byte: D
+encode() | index of our symbol | Number: 505
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 506
+getCompressedByte() | current node index | Number: 505
+getCompressedByte() | come from right child
+getCompressedByte() | parent index | Number: 508
+getCompressedByte() | current node index | Number: 506
+getCompressedByte() | come from left child
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 508
+getCompressedByte() | come from left child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 505
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 506
+incrementWeights() | current node index | Number: 506
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 4
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 5
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 001
+encode() | encode symbol | Byte: D
+encode() | index of our symbol | Number: 505
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 506
+getCompressedByte() | current node index | Number: 505
+getCompressedByte() | come from right child
+getCompressedByte() | parent index | Number: 508
+getCompressedByte() | current node index | Number: 506
+getCompressedByte() | come from left child
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 508
+getCompressedByte() | come from left child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 505
+incrementWeights() | new weight after increment | Number: 3
+incrementWeights() | parent index | Number: 506
+incrementWeights() | current node index | Number: 506
+incrementWeights() | new weight after increment | Number: 3
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 5
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 6
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 001
+encode() | encode symbol | Byte: D
+encode() | index of our symbol | Number: 505
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 506
+getCompressedByte() | current node index | Number: 505
+getCompressedByte() | come from right child
+getCompressedByte() | parent index | Number: 508
+getCompressedByte() | current node index | Number: 506
+getCompressedByte() | come from left child
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 508
+getCompressedByte() | come from left child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 505
+incrementWeights() | new weight after increment | Number: 4
+incrementWeights() | parent index | Number: 506
+incrementWeights() | current node index | Number: 506
+incrementWeights() | new weight after increment | Number: 4
+incrementWeights() | parent index | Number: 508
+incrementWeights() | current node index | Number: 508
+incrementWeights() | new weight after increment | Number: 6
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 7
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 001
+encode() | encode symbol | Byte: B
+encode() | index of our symbol | Number: 509
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 509
+getCompressedByte() | come from right child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 509
+incrementWeights() | new weight after increment | Number: 2
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 8
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 1
+encode() | encode symbol | Byte: B
+encode() | index of our symbol | Number: 509
+encode() |  - > getCompressedByte()
+getCompressedByte() | parent index | Number: 510
+getCompressedByte() | current node index | Number: 509
+getCompressedByte() | come from right child
+encode() |  - > updateTree()
+updateTree() |  - > incrementWeights()
+incrementWeights() | current node index | Number: 509
+incrementWeights() | new weight after increment | Number: 3
+incrementWeights() | parent index | Number: 510
+incrementWeights() | current node index | Number: 510
+incrementWeights() | new weight after increment | Number: 9
+incrementWeights() | parent index | Number: 512
+addSymbol() |  - > visualize()
+visualize() | create dump
+encode() | result of encoding | Byte code: 1

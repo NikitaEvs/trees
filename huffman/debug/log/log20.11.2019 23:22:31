@@ -1,0 +1,2 @@
+***START LOG***
+encode() | Encoding the sentence with this code requires 195 (or 147) bits, as opposed to 288 (or 180) bits if 36 characters of 8 (or 5) bits were used. (This assumes that the code tree structure is known to the decoder and thus does not need to be counted as part of the transmitted information.)

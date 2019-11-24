@@ -1,0 +1,8 @@
+***START LOG***
+encode() | encode symbol | Byte: A
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+encode() |  - > addSymbol()
+addSymbol() | add new symbol to the tree | Byte: A
+addSymbol() |  - > visualize()
+visualize() | create dump

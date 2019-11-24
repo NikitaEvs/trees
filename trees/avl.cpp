@@ -1,22 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <cstdint>
+/** Задание 3. Задача №3_2
+ * Дано число N и N строк. Каждая строка содержащит команду добавления или удаления натуральных чисел, а также запрос на получение k-ой порядковой статистики.
+ * Команда добавления числа A задается положительным числом A, команда удаления числа A задается отрицательным числом “-A”.
+ * Запрос на получение k-ой порядковой статистики задается числом k. Требуемая скорость выполнения запроса - O(log n).
+ */
 
-#include <set>
-#include <chrono>
-#include <random>
-#include <string> // string
+#include <iostream>
 
 //#define DEBUG
 
 #ifdef DEBUG
-#include "../visLib/visualization.h"
+#include "visLib/visualization.h"
 #endif
-
-#include "../testCode/seminarAVL.h"
-#include "../testCode/generator.h"
-
 
 template <typename elementType>
 class Comparator {
@@ -31,15 +25,16 @@ class BinarySearchTree {
  public:
 
   explicit BinarySearchTree(Comparator comparator):
-    comparator(comparator) {}
+      comparator(comparator) {}
 
   ~BinarySearchTree() {
     delete root;
   }
 
-  void simpleInsert(elementType item) {
+  bool simpleInsert(elementType item) {
     if (isEmpty()) {
       root = new Node(item);
+      return true;
     } else {
       Node *currentNode = root;
 
@@ -48,18 +43,18 @@ class BinarySearchTree {
           if (currentNode -> leftChild != nullptr) {
             currentNode = currentNode -> leftChild;
           } else {
-            currentNode -> leftChild = new Node(item);
+            currentNode -> leftChild = new Node(item, currentNode);
             break;
           }
         } else if (comparator(currentNode -> value, item)) {
           if (currentNode -> rightChild != nullptr) {
             currentNode = currentNode -> rightChild;
           } else {
-            currentNode -> rightChild = new Node(item);
+            currentNode -> rightChild = new Node(item, currentNode);
             break;
           }
         } else {
-          return;
+          return false;
         }
       }
     }
@@ -69,7 +64,7 @@ class BinarySearchTree {
     if (isEmpty()) {
       root = new Node(item);
     }  else {
-      insert(root, item);
+      insert(root, nullptr, item, true);
     }
   }
 
@@ -122,10 +117,6 @@ class BinarySearchTree {
     return root == nullptr;
   }
 
-  std::vector<elementType> inOrderTraversal() {
-    return inOrder(root);
-  }
-
 #ifdef DEBUG
   void visualize() {
     visual.dump(root);
@@ -148,11 +139,11 @@ class BinarySearchTree {
     int32_t leftChildCount = 0;
 
     explicit Node (elementType const &item):
-      value(item) {}
+        value(item) {}
 
     Node (elementType const &item, Node *parent):
-      value(item),
-      parent(parent) {}
+        value(item),
+        parent(parent) {}
 
     ~Node() {
       if (this != nullptr) {
@@ -316,6 +307,7 @@ class BinarySearchTree {
     } else {
       previousParent -> rightChild = rotatingNode;
     }
+    int a = 5;
   }
 
   void rotateLeftRight(Node* &rotatingNode) {
@@ -379,59 +371,28 @@ class BinarySearchTree {
     }
   }
 
-  void insert(Node* currentNode, elementType item) {
-//    if (currentNode == nullptr) {
-//      currentNode = new Node(item, previousNode);
-//      if (isLeft) {
-//        previousNode -> leftChild = currentNode;
-//      } else {
-//        previousNode -> rightChild = currentNode;
-//      }
-//
-//      balance(currentNode);
-//
-//      return;
-//    }
-//    if (comparator(item, currentNode -> value)) {
-//      currentNode -> leftChildCount++;
-//      insert(currentNode -> leftChild, currentNode, item, true);
-//    } else if (comparator(currentNode -> value, item)) {
-//      currentNode -> rightChildCount++;
-//      insert(currentNode -> rightChild, currentNode, item, false);
-//    } else {
-//      return;
-//    }
-
-    bool isLeft = false;
-    Node *previousNode = nullptr;
-    while (currentNode != nullptr) {
-      if (comparator(item, currentNode -> value)) {
-        currentNode -> leftChildCount++;
-        previousNode = currentNode;
-        currentNode = currentNode -> leftChild;
-        isLeft = true;
-        //insert(currentNode -> leftChild, currentNode, item, true);
-      } else if (comparator(currentNode -> value, item)) {
-        currentNode -> rightChildCount++;
-        previousNode = currentNode;
-        currentNode = currentNode -> rightChild;
-        isLeft = false;
-        //insert(currentNode -> rightChild, currentNode, item, false);
-      } else {
-        return;
-      }
-    }
-
-    currentNode = new Node(item, previousNode);
-    if (previousNode) {
+  void insert(Node* currentNode, Node* previousNode, elementType item, bool isLeft) {
+    if (currentNode == nullptr) {
+      currentNode = new Node(item, previousNode);
       if (isLeft) {
         previousNode -> leftChild = currentNode;
       } else {
         previousNode -> rightChild = currentNode;
       }
-    }
 
-    balance(currentNode);
+      balance(currentNode);
+
+      return;
+    }
+    if (comparator(item, currentNode -> value)) {
+      currentNode -> leftChildCount++;
+      insert(currentNode -> leftChild, currentNode, item, true);
+    } else if (comparator(currentNode -> value, item)) {
+      currentNode -> rightChildCount++;
+      insert(currentNode -> rightChild, currentNode, item, false);
+    } else {
+      return;
+    }
   }
 
   void erase(Node* currentNode) {
@@ -599,30 +560,6 @@ class BinarySearchTree {
     }
   }
 
-  std::vector<elementType> inOrder(Node* startNode) {
-    std::stack<Node *> stack;
-    std::vector<elementType> buffer;
-
-    if (startNode == nullptr) return buffer;
-
-    Node *currentNode = startNode;
-
-    while (currentNode != nullptr || !stack.empty()) {
-      while (currentNode != nullptr) {
-        stack.push(currentNode);
-        currentNode = currentNode -> leftChild;
-      }
-
-      currentNode = stack.top();
-      stack.pop();
-
-      buffer.push_back(currentNode -> value);
-
-      currentNode = currentNode -> rightChild;
-    }
-    return buffer;
-  }
-
   Node *root = nullptr;
   Comparator comparator;
 
@@ -633,32 +570,27 @@ class BinarySearchTree {
 };
 
 int main() {
-  Comparator<std::string> comparator;
-  BinarySearchTree<std::string, Comparator<std::string> > binarySearchTree(comparator);
-  AVLTree tree;
-  std::set<std::string> set;
-  //auto tStart1 = std::chrono::high_resolution_clock::now();
-  //std::cout << "Our bst: " << std::chrono::duration_cast<std::chrono::microseconds>(tFinish1 - tStart1).count() << std::endl;
+  Comparator<int32_t> comparator;
+  BinarySearchTree<int32_t, Comparator<int32_t > > binarySearchTree(comparator);
+  //freopen("../testCode/aaa", "r", stdin);
+  int32_t n, number, orderIndex;
+  std::cin >> n;
 
-  /* Generate strings */
-  std::vector<std::string> testStringSet = generator::getRandomStrings(500000, 'a', 'z', 50);
-
-  /* Generate numbers */
-
-  auto tStart1 = std::chrono::high_resolution_clock::now();
-  for (int32_t i = 0; i < testStringSet.size(); i++) {
-    binarySearchTree.balancedInsert(testStringSet[i]);
+  for (int32_t i = 0; i < n; i++) {
+    std::cin >> number >> orderIndex;
+    if (number > 0) {
+      binarySearchTree.balancedInsert(number);
+#ifdef DEBUG
+      binarySearchTree.visualize(i);
+#endif
+    } else {
+      binarySearchTree.balancedErase(-number);
+#ifdef DEBUG
+      binarySearchTree.visualize(i);
+#endif
+    }
+    std::cout << binarySearchTree.select(orderIndex) << " ";
   }
-  auto tFinish1 = std::chrono::high_resolution_clock::now();
-  for (int32_t i = 0; i < testStringSet.size(); i++) {
-    set.insert(testStringSet[i]);
-  }
-  auto tFinish2 = std::chrono::high_resolution_clock::now();
-
-  std::cout << "Our bst: " << std::chrono::duration_cast<std::chrono::microseconds>(tFinish1 - tStart1).count() << std::endl;
-  std::cout << "Set: " << std::chrono::duration_cast<std::chrono::microseconds>(tFinish2 - tFinish1).count() << std::endl;
-
-
 
   return 0;
 }

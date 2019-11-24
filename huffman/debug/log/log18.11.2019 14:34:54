@@ -1,0 +1,6 @@
+***START LOG***
+encode() | encode symbol | Byte: A
+encode() | index of our symbol | Number: 0
+encode() | don't find symbol
+getCompressedByte() | parent index | Number: 0
+getCompressedByte() | current node index | Number: 512

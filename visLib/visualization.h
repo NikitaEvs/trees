@@ -200,7 +200,7 @@ class Visual {
         dumpFile << "    " << currentNode -> key_ << " -> " << generateNullPointNode() << " [label=\"priority: " << currentNode -> priority_ << "\"];\n";
       }
       if (currentNode->rightChild != nullptr) {
-        dumpFile << "    " << currentNode -> key_ << " -> " << currentNode->rightChild->key_ << " [label=\"priority: " << currentNode -> priority_ << "\"];\n";
+        dumpFile << "    " << currentNode -> key_ << " -> " << currentNode -> rightChild -> key_ << " [label=\"priority: " << currentNode -> priority_ << "\"];\n";
         dumpTreapNode(dumpFile, currentNode -> rightChild);
       } else if (!appendMode) {
         dumpFile << generateNullPointDeclaration();

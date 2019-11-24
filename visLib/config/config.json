@@ -11,7 +11,7 @@
     "onlyOneFileMode": false,
     "appendMode": false,
     "diffMode": false,
-    "childCountMode": true,
+    "childCountMode": false,
     "treapMode": false
   }
 }

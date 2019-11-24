@@ -1,0 +1,31 @@
+digraph BinarySearchTree {
+    node [fontname = "Arial"];
+    30 -> 15 [label="priority: 30"];
+    15 -> 5 [label="priority: 15"];
+    null0[shape=point];
+    5 -> null0 [label="priority: 11"];
+    null1[shape=point];
+    5 -> null1 [label="priority: 11"];
+    15 -> 20 [label="priority: 15"];
+    20 -> 18 [label="priority: 10"];
+    null2[shape=point];
+    18 -> null2 [label="priority: 8"];
+    null3[shape=point];
+    18 -> null3 [label="priority: 8"];
+    20 -> 25 [label="priority: 10"];
+    25 -> 22 [label="priority: 7"];
+    null4[shape=point];
+    22 -> null4 [label="priority: 5"];
+    null5[shape=point];
+    22 -> null5 [label="priority: 5"];
+    null6[shape=point];
+    25 -> null6 [label="priority: 7"];
+    30 -> 40 [label="priority: 30"];
+    null7[shape=point];
+    40 -> null7 [label="priority: 20"];
+    40 -> 50 [label="priority: 20"];
+    null8[shape=point];
+    50 -> null8 [label="priority: 12"];
+    null9[shape=point];
+    50 -> null9 [label="priority: 12"];
+}

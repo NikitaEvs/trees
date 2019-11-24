@@ -1,6 +1,11 @@
-/home/hutu/trees/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/simpleHuffman.dir
 /home/hutu/trees/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/hutu/trees/cmake-build-debug/CMakeFiles/huffman.dir
-/home/hutu/trees/cmake-build-debug/CMakeFiles/kurevo.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/other.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/bst.dir
 /home/hutu/trees/cmake-build-debug/CMakeFiles/avl.dir
 /home/hutu/trees/cmake-build-debug/CMakeFiles/test.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/kurevo.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/huffman.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/vitter.dir
+/home/hutu/trees/cmake-build-debug/CMakeFiles/seminarHuffman.dir

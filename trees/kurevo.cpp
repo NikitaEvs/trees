@@ -19,7 +19,7 @@
 //#define DUMP
 
 #if defined(DEBUG) || defined(DUMP)
-#include "visLib/visualization.h"
+#include "../visLib/visualization.h"
 #endif
 
 template <typename elementType>
@@ -37,7 +37,9 @@ class BinarySearchTree {
       comparator(comparator) {}
 
   ~BinarySearchTree() {
-    delete root;
+    for (auto &currentNode : usedNodes) {
+      delete currentNode;
+    }
   }
 
   bool isEmpty() const {
@@ -47,6 +49,7 @@ class BinarySearchTree {
   void simpleInsert(elementType item) {
     if (isEmpty()) {
       root = new Node(item);
+      usedNodes.push_back(root);
     } else {
       Node *currentNode = root;
 
@@ -56,6 +59,7 @@ class BinarySearchTree {
             currentNode = currentNode->leftChild;
           } else {
             currentNode->leftChild = new Node(item);
+            usedNodes.push_back(currentNode -> leftChild);
             break;
           }
         } else  {
@@ -63,6 +67,7 @@ class BinarySearchTree {
             currentNode = currentNode->rightChild;
           } else {
             currentNode->rightChild = new Node(item);
+            usedNodes.push_back(currentNode -> rightChild);
             break;
           }
         }
@@ -120,15 +125,11 @@ class BinarySearchTree {
       leftChild->print(level + 1);
     }
 
-    ~Node() {
-      if (this != nullptr) {
-        delete leftChild;
-        delete rightChild;
-      }
-    }
+    ~Node() = default;
   };
 
   Node *root = nullptr;
+  std::vector<Node*> usedNodes;
   Comparator comparator;
 };
 

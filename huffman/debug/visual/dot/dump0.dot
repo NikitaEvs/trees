@@ -1,0 +1,23 @@
+digraph D {
+    node [shape=plaintext fontname="Sans serif" fontsize="8"];
+    510 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 510</b></td></tr>
+      <tr><td align="left">Weight: 0</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    511 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 511</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">A</font></td></tr>
+     </table>>];
+    512 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 512</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    512->510;
+    512->511;
+}

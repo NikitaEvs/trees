@@ -1,0 +1,2 @@
+***START LOG***
+encode() | Huffman Coding (also known as Huffman Encoding) is a algorithm for doing data compression and it forms the basic idea behind file compression. This post talks about fixed length and variable length encoding, uniquely decodable codes, prefix rules and construction of Huffman Tree.

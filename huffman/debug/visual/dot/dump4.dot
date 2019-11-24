@@ -1,0 +1,65 @@
+digraph D {
+    node [shape=plaintext fontname="Sans serif" fontsize="8"];
+    504 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 504</b></td></tr>
+      <tr><td align="left">Weight: 0</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    505 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 505</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">D</font></td></tr>
+     </table>>];
+    506 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 506</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    507 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 507</b></td></tr>
+      <tr><td align="left">Weight: 2</td></tr>
+      <tr><td align="left"><font color="darkgreen">C</font></td></tr>
+     </table>>];
+    508 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 508</b></td></tr>
+      <tr><td align="left">Weight: 3</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    509 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 509</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">B</font></td></tr>
+     </table>>];
+    510 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 510</b></td></tr>
+      <tr><td align="left">Weight: 4</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    511 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 511</b></td></tr>
+      <tr><td align="left">Weight: 1</td></tr>
+      <tr><td align="left"><font color="darkgreen">A</font></td></tr>
+     </table>>];
+    512 [ label=<
+     <table border="1" cellborder="0" cellspacing="1">
+      <tr><td align="left"><b>Number: 512</b></td></tr>
+      <tr><td align="left">Weight: 5</td></tr>
+      <tr><td align="left"><font color="darkgreen">~</font></td></tr>
+     </table>>];
+    512->510;
+    512->511;
+    510->508;
+    510->509;
+    508->506;
+    508->507;
+    506->504;
+    506->505;
+}

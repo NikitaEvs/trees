@@ -9,7 +9,7 @@
 //#define DEBUG
 
 #ifdef DEBUG
-#include "visLib/visualization.h"
+#include "../visLib/visualization.h"
 #endif
 
 template <typename elementType>

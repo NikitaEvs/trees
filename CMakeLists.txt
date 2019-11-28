@@ -16,5 +16,6 @@ add_executable(seminarHuffman huffman/src/seminarHuffman.cpp)
 add_executable(vitter huffman/src/vitterSobaka.cpp)
 add_executable(other testCode/otherTest.cpp)
 add_executable(simpleHuffman huffman/src/simpleHuffman.cpp)
+add_executable(advancedHuffman huffman/src/advancedHuffman.cpp)
 
 target_compile_options (simpleHuffman PRIVATE -O0 -fno-stack-limit -x c++ -std=c++11 -Walloc-size-larger-than=PTRDIFF_MAX -Walloc-zero -Walloca -Wformat-overflow -Wformat-truncation -Wnonnull -Wstringop-overflow -Wvla)

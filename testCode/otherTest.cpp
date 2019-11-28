@@ -1,126 +1,138 @@
-/* Ð”Ð°Ð½Ð¾ Ñ‡Ð¸ÑÐ»Ð¾ N < 106 Ð¸ Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ Ñ†ÐµÐ»Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ» Ð¸Ð· [-231..231] Ð´Ð»Ð¸Ð½Ð¾Ð¹ N.
-Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿Ð¾ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ Ð±Ð¸Ð½Ð°Ñ€Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ°, Ð·Ð°Ð´Ð°Ð½Ð½Ð¾Ðµ Ð½Ð°Ð¸Ð²Ð½Ñ‹Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐ¾Ð¼ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸. Ð¢.Ðµ., Ð¿Ñ€Ð¸ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ð¸ Ð¾Ñ‡ÐµÑ€ÐµÐ´Ð½Ð¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð° K Ð² Ð´ÐµÑ€ÐµÐ²Ð¾ Ñ ÐºÐ¾Ñ€Ð½ÐµÐ¼ root, ÐµÑÐ»Ð¸ rootâ†’Key â‰¤ K, Ñ‚Ð¾ ÑƒÐ·ÐµÐ» K Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ÑÑ Ð² Ð¿Ñ€Ð°Ð²Ð¾Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€ÐµÐ²Ð¾ root; Ð¸Ð½Ð°Ñ‡Ðµ Ð² Ð»ÐµÐ²Ð¾Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€ÐµÐ²Ð¾ root.
-Ð’Ñ‹Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð² Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ level-order (Ð¿Ð¾ ÑÐ»Ð¾ÑÐ¼, â€œÐ² ÑˆÐ¸Ñ€Ð¸Ð½Ñƒâ€).*/
-
-#include "iostream"
-#include "vector"
-#include "queue"
-#include "stack"
-
+/*Алгоритм сжатия данных Хаффмана*/
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
-
-template <class T>
-struct Nod
-{
-  Nod *right, *left;
-  T key;
-
-  Nod (T element)
-  {
-    right = NULL;
-    left = NULL;
-    key = element;
+template<typename T, class C>
+class Haffman {
+ private:
+  struct node {
+    T value;
+    int simvol;
+    node* left;
+    node* right;
+    node(node* LEFT, node* RIGHT) {
+      left = LEFT;
+      right = RIGHT;
+      value = LEFT->value + RIGHT->value;
+    }
+    node() {
+      left = nullptr;
+      right = nullptr;
+    }
+    ~node() {
+    }
+    void print(int level = 0) const {
+      if (this == nullptr) return;
+      right->print(level + 1);
+      for (int i = 0; i < level; i++) cout << "  ";
+      cout << value << ' ' << endl;
+      left->print(level + 1);
+    }
   }
-};
-
-template <class T>
-class tree
-{
+      *root = nullptr;
+  C comp;
  public:
-  tree (bool (*ismore)(const T&, const T&))
-  {
-    comparator = ismore;
+  Haffman(C comp) : comp(comp) {}
+  ~Haffman() {
+    queue <node* > del;
+    del.push(root);
+    while (del.size() != 0) {
+      auto current = del.front();
+      del.pop();
+      if (current->left != nullptr) {
+        del.push(current->left);
+      }
+      if (current->right != nullptr) {
+        del.push(current->right);
+      }
+      delete current;
+    }
   }
-
-  void add (int element)
-  {
-    if (root == NULL) root = new Nod<T> (element), all_Nods.push(root);
-    else
-    {
-      helproot = root;
-      while (true)
-      {
-        if (comparator(element, helproot->key)/*element >= helproot->key*/)
-          if (helproot->right != NULL) helproot = helproot->right;
-          else
-          {
-            helproot->right = new Nod<T> (element);
-            all_Nods.push(helproot->right);
-            break;
-          }
-        else
-        if (helproot->left != NULL) helproot = helproot->left;
-        else
-        {
-          helproot->left = new Nod<T> (element);
-          all_Nods.push(helproot->left);
-          break;
+  int Partition(vector<node*>& a, int start, int end) {
+    if (end > start) {
+      int m = (start + end) / 2;
+      swap(a[start], a[m]);
+      int i = end;
+      for (int j = end; j >= (start + 1); --j) {
+        if (a[j]->value >= a[start]->value) {
+          swap(a[i], a[j]);
+          --i;
         }
       }
+      swap(a[i], a[start]);
+      return(i);
     }
   }
-
-  vector<int> print_wise ()
-  {
-    vector<int> answer;
-    queue<Nod<T>*> helpqueue;
-
-    if (root != NULL)
-    {
-      helpqueue.push(root);
-
-      while (helpqueue.size() != 0)
-      {
-        if (helpqueue.front()->left != NULL) helpqueue.push(helpqueue.front()->left);
-        if (helpqueue.front()->right != NULL) helpqueue.push(helpqueue.front()->right);
-
-        answer.push_back(helpqueue.front()->key);
-        helpqueue.pop();
+  void qsort(vector <node*>& a, int start, int end) {
+    if (start < end) {
+      int p = Partition(a, start, end);
+      qsort(a, start, p - 1);
+      qsort(a, p + 1, end);
+    }
+  }
+  bool insert(vector<int>& Table) {
+    vector<node*> AllTree;
+    for (int i = 0; i < Table.size(); ++i) {
+      if (Table[i] != 0) {
+        node* leaf = new node();
+        leaf->simvol = (i);
+        leaf->value = Table[i];
+        AllTree.push_back(leaf);
       }
     }
-
-
-    return answer;
-  }
-
-  ~tree()
-  {
-    while (all_Nods.size() != 0)
-    {
-      delete all_Nods.top();
-      all_Nods.pop();
+    while (AllTree.size() >= 2) {
+      qsort(AllTree, AllTree.begin(), AllTree.size()-1);
+      node* left = AllTree.front();
+      AllTree.erase(AllTree.begin());
+      node* right = AllTree.front();
+      AllTree.erase(AllTree.begin());
+      node* parent = new node(left, right);
+      AllTree.push_back(parent);
     }
+    node* root = (AllTree[0]);
   }
-
- private:
-  Nod<T>* root = NULL;
-  Nod<T>* helproot = NULL;
-  bool (*comparator)(const T&, const T&);
-  stack<Nod<T>*> all_Nods;
+  void EndOfTable2() {
+    vector<string> TableITOG;
+    vector <string> a;
+    root->EndOfTable2(TableITOG, a);
+  }
+  void EndOfTable2(node* current, vector<string> &TableITOG, vector <string> &a) {
+    if (current->left != nullptr) {
+      a.push_back("0");
+      EndOfTable2(current->left);
+    }
+    if (current->right != nullptr) {
+      a.push_back("1");
+      EndOfTable2(current->right);
+    }
+    if (current->right == nullptr && current->left = nullptr) {
+      TableITOG[current->simvol] = a;
+    }
+    a.pop_back();
+  }
+  void print2() {
+    root->print();
+  }
 };
 
-template <class T>
-bool ismore (const T &a, const T &b)
-{
-  return a >= b;
-}
-
-
-int main()
-{
-  int n;
-  cin >> n;
-
-  int *mas = new int [n];
-
-  for (int i = 0; i < n; i ++) cin >> mas[i];
-
-  tree<int> easytree (ismore);
-
-  for (int i = 0; i < n; i ++) easytree.add (mas[i]);
-
-  vector<int> answer = easytree.print_wise();
-  for (int i = 0; i < answer.size(); i ++) cout << answer[i] << " ";
-
-  delete[] mas;
+class int_comparer {
+ public:
+  bool operator()(int x, int y) {
+    return x < y;
+  }
+};
+int main() {
+  int_comparer icomp;
+  Haffman<int, int_comparer> tree(icomp);
+  string stroka;
+  vector<int> Table(257);
+  getline(cin, stroka);
+  for (int i = 0; i < stroka.size(); ++i) {
+    Table[int(stroka[i])] += 1;
+  }
+  tree.insert(Table);
+  tree.print2();
 }

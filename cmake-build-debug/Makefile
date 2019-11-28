@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named advancedHuffman
+
+# Build rule for target.
+advancedHuffman: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 advancedHuffman
+.PHONY : advancedHuffman
+
+# fast build rule for target.
+advancedHuffman/fast:
+	$(MAKE) -f CMakeFiles/advancedHuffman.dir/build.make CMakeFiles/advancedHuffman.dir/build
+.PHONY : advancedHuffman/fast
+
+#=============================================================================
 # Target rules for targets named simpleHuffman
 
 # Build rule for target.
@@ -226,6 +239,33 @@ seminarHuffman: cmake_check_build_system
 seminarHuffman/fast:
 	$(MAKE) -f CMakeFiles/seminarHuffman.dir/build.make CMakeFiles/seminarHuffman.dir/build
 .PHONY : seminarHuffman/fast
+
+huffman/src/advancedHuffman.o: huffman/src/advancedHuffman.cpp.o
+
+.PHONY : huffman/src/advancedHuffman.o
+
+# target to build an object file
+huffman/src/advancedHuffman.cpp.o:
+	$(MAKE) -f CMakeFiles/advancedHuffman.dir/build.make CMakeFiles/advancedHuffman.dir/huffman/src/advancedHuffman.cpp.o
+.PHONY : huffman/src/advancedHuffman.cpp.o
+
+huffman/src/advancedHuffman.i: huffman/src/advancedHuffman.cpp.i
+
+.PHONY : huffman/src/advancedHuffman.i
+
+# target to preprocess a source file
+huffman/src/advancedHuffman.cpp.i:
+	$(MAKE) -f CMakeFiles/advancedHuffman.dir/build.make CMakeFiles/advancedHuffman.dir/huffman/src/advancedHuffman.cpp.i
+.PHONY : huffman/src/advancedHuffman.cpp.i
+
+huffman/src/advancedHuffman.s: huffman/src/advancedHuffman.cpp.s
+
+.PHONY : huffman/src/advancedHuffman.s
+
+# target to generate assembly for a file
+huffman/src/advancedHuffman.cpp.s:
+	$(MAKE) -f CMakeFiles/advancedHuffman.dir/build.make CMakeFiles/advancedHuffman.dir/huffman/src/advancedHuffman.cpp.s
+.PHONY : huffman/src/advancedHuffman.cpp.s
 
 huffman/src/huffman.o: huffman/src/huffman.cpp.o
 
@@ -476,6 +516,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... advancedHuffman"
 	@echo "... simpleHuffman"
 	@echo "... edit_cache"
 	@echo "... other"
@@ -487,6 +528,9 @@ help:
 	@echo "... huffman"
 	@echo "... vitter"
 	@echo "... seminarHuffman"
+	@echo "... huffman/src/advancedHuffman.o"
+	@echo "... huffman/src/advancedHuffman.i"
+	@echo "... huffman/src/advancedHuffman.s"
 	@echo "... huffman/src/huffman.o"
 	@echo "... huffman/src/huffman.i"
 	@echo "... huffman/src/huffman.s"

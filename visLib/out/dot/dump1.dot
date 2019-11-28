@@ -1,10 +1,7 @@
 digraph BinarySearchTree {
     node [fontname = "Arial"];
     null0[shape=point];
-    5 -> null0 [label="priority: 11"];
-    5 -> 18 [label="priority: 11"];
+    1 -> null0;
     null1[shape=point];
-    18 -> null1 [label="priority: 8"];
-    null2[shape=point];
-    18 -> null2 [label="priority: 8"];
+    1 -> null1;
 }

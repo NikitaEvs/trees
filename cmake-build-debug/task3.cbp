@@ -17,6 +17,54 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="advancedHuffman">
+				<Option output="/home/hutu/trees/cmake-build-debug/advancedHuffman" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hutu/trees/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/hutu/trees/visLib/thirdparty"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 advancedHuffman"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="advancedHuffman/fast">
+				<Option output="/home/hutu/trees/cmake-build-debug/advancedHuffman" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/hutu/trees/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/hutu/trees/visLib/thirdparty"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 advancedHuffman/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/hutu/trees/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="simpleHuffman">
 				<Option output="/home/hutu/trees/cmake-build-debug/simpleHuffman" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/hutu/trees/cmake-build-debug"/>
@@ -470,6 +518,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/hutu/trees/huffman/src/advancedHuffman.cpp">
+			<Option target="advancedHuffman"/>
+		</Unit>
 		<Unit filename="/home/hutu/trees/huffman/src/huffman.cpp">
 			<Option target="huffman"/>
 		</Unit>
